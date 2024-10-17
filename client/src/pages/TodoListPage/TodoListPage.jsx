@@ -1,9 +1,22 @@
 import TodoItem from "../../components/TodoItem"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function TodoListPage() {
+
+    const LOCAL_STORAGE_KEY = "TODOS"
+
     const [newTodoName, setNewTodoName] = useState("")
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState(() => {
+        const value = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+        if (value == null) return []
+
+        return JSON.parse(value)
+    })
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+    })
 
     function addNewTodo() {
         if (newTodoName === "") return
@@ -57,7 +70,7 @@ export default function TodoListPage() {
                     onChange={e => setNewTodoName(e.target.value)}
                     placeholder="Pick up groceries..."
                 />
-                <button onClick={addNewTodo}>Add Todo</button>
+                <button onClick={addNewTodo}>Add</button>
             </div>
         </>
     )
