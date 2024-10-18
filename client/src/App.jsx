@@ -1,9 +1,12 @@
 import TodoListPage from "./pages/TodoListPage/TodoListPage"
+import "./App.css"
 
 function App() {
   return (
     <>
-      <TodoListPage />
+      <div className="app-container">
+        <TodoListPage />
+      </div>
     </>
   )
 }

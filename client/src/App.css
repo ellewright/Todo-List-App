@@ -1,0 +1,9 @@
+.app-container {
+    background-color: var(--gray);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 20rem;
+    border-radius: 5px;
+}

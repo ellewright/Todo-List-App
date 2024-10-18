@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from "react"
-import { TodoContext } from "../pages/TodoListPage/TodoListPage"
+import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
+import "./TodoItem.css"
 
 export default function TodoItem({ id, name, completed }) {
     const { toggleTodo, deleteTodo, updateTodo } = useContext(TodoContext)

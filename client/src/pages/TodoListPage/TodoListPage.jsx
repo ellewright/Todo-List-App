@@ -1,8 +1,8 @@
-import NewTodoForm from "../../components/NewTodoForm"
-import TodoItem from "../../components/TodoItem"
+import NewTodoForm from "../../components/NewTodoForm.css/NewTodoForm"
 import { useEffect, useReducer, createContext, useState } from "react"
-import TodoList from "../../components/TodoList"
-import TodoFilterForm from "../../components/TodoFilterForm"
+import TodoList from "../../components/TodoList/TodoList"
+import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
+import "./TodoListPage.css"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -93,22 +93,24 @@ export default function TodoListPage() {
 
     return (
         <>
-            <TodoContext.Provider value={{
-                todos: filteredTodos,
-                addNewTodo,
-                toggleTodo,
-                updateTodo,
-                deleteTodo
-            }}>
-                <TodoFilterForm
-                    filter={filter}
-                    setFilter={setFilter}
-                    hideCompleted={hideCompleted}
-                    setHideCompleted={setHideCompleted}
-                />
-                <TodoList />
-                <NewTodoForm />
-            </TodoContext.Provider>
+            <div className="page-container">
+                <TodoContext.Provider value={{
+                    todos: filteredTodos,
+                    addNewTodo,
+                    toggleTodo,
+                    updateTodo,
+                    deleteTodo
+                }}>
+                    <TodoFilterForm
+                        filter={filter}
+                        setFilter={setFilter}
+                        hideCompleted={hideCompleted}
+                        setHideCompleted={setHideCompleted}
+                    />
+                    <TodoList />
+                    <NewTodoForm />
+                </TodoContext.Provider>
+            </div>
         </>
     )
 }
