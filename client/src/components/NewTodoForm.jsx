@@ -20,6 +20,7 @@ export default function NewTodoForm() {
             <form onSubmit={handleSubmit} id="new-todo-form">
                 <label htmlFor="todo-input">New: </label>
                 <input
+                    autoFocus
                     type="text"
                     id="todo-input"
                     ref={nameRef}

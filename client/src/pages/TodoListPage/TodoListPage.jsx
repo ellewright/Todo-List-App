@@ -27,6 +27,14 @@ function reducer(todos, { type, payload }) {
 
                 return todo
             })
+        case ACTIONS.UPDATE:
+            return todos.map(todo => {
+                if (todo.id === payload.id) {
+                    return { ...todo, name: payload.name }
+                }
+
+                return todo
+            })
         case ACTIONS.DELETE:
             return todos.filter(todo => todo.id !== payload.id)
         default:
@@ -61,9 +69,20 @@ export default function TodoListPage() {
 
     function toggleTodo(todoId, completed) {
         dispatch({
-            type: ACTIONS.TOGGLE, payload: {
+            type: ACTIONS.TOGGLE,
+            payload: {
                 id: todoId,
                 completed
+            }
+        })
+    }
+
+    function updateTodo(todoId, todoName) {
+        dispatch({
+            type: ACTIONS.UPDATE,
+            payload: {
+                id: todoId,
+                name: todoName
             }
         })
     }
@@ -78,6 +97,7 @@ export default function TodoListPage() {
                 todos: filteredTodos,
                 addNewTodo,
                 toggleTodo,
+                updateTodo,
                 deleteTodo
             }}>
                 <TodoFilterForm
