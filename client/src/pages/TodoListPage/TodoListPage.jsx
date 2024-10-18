@@ -1,77 +1,94 @@
+import NewTodoForm from "../../components/NewTodoForm"
 import TodoItem from "../../components/TodoItem"
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, createContext, useState } from "react"
+import TodoList from "../../components/TodoList"
+import TodoFilterForm from "../../components/TodoFilterForm"
+
+const LOCAL_STORAGE_KEY = "TODOS"
+const ACTIONS = {
+    ADD: "ADD",
+    TOGGLE: "TOGGLE",
+    UPDATE: "UPDATE",
+    DELETE: "DELETE"
+}
+
+export const TodoContext = createContext()
+
+function reducer(todos, { type, payload }) {
+    switch (type) {
+        case ACTIONS.ADD:
+            return [
+                ...todos,
+                { name: payload.name, completed: false, id: crypto.randomUUID() },
+            ]
+        case ACTIONS.TOGGLE:
+            return todos.map(todo => {
+                if (todo.id === payload.id) return { ...todo, completed: payload.completed }
+
+                return todo
+            })
+        case ACTIONS.DELETE:
+            return todos.filter(todo => todo.id !== payload.id)
+        default:
+            throw new Error(`No action found for ${type}.`)
+    }
+}
 
 export default function TodoListPage() {
+    const [filter, setFilter] = useState("")
+    const [hideCompleted, setHideCompleted] = useState(false)
 
-    const LOCAL_STORAGE_KEY = "TODOS"
-
-    const [newTodoName, setNewTodoName] = useState("")
-    const [todos, setTodos] = useState(() => {
+    const [todos, dispatch] = useReducer(reducer, [], (initialValue) => {
         const value = localStorage.getItem(LOCAL_STORAGE_KEY)
-
-        if (value == null) return []
+        if (value == null) return initialValue
 
         return JSON.parse(value)
     })
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+    }, [todos])
+
+    const filteredTodos = todos.filter((todo) => {
+        if (hideCompleted && todo.completed) return false
+        return todo.name.includes(filter)
     })
 
-    function addNewTodo() {
-        if (newTodoName === "") return
-
-        setTodos(currentTodos => {
-            return [
-                ...currentTodos,
-                { name: newTodoName, completed: false, id: crypto.randomUUID() },
-            ]
-        })
-        setNewTodoName("")
+    function addNewTodo(name) {
+        if (name === "") return
+        dispatch({ type: ACTIONS.ADD, payload: { name: name } })
     }
 
     function toggleTodo(todoId, completed) {
-        setTodos(currentTodos => {
-            return currentTodos.map(todo => {
-                if (todo.id === todoId) return { ...todo, completed }
-
-                return todo
-            })
+        dispatch({
+            type: ACTIONS.TOGGLE, payload: {
+                id: todoId,
+                completed
+            }
         })
     }
 
     function deleteTodo(todoId) {
-        setTodos(currentTodos => {
-            return currentTodos.filter(todo => todo.id !== todoId)
-        })
+        dispatch({ type: ACTIONS.DELETE, payload: { id: todoId } })
     }
 
     return (
         <>
-            <ul id="list">
-                {todos.map(todo => {
-                    return (
-                        <TodoItem
-                            key={todo.id}
-                            {...todo}
-                            toggleTodo={toggleTodo}
-                            deleteTodo={deleteTodo}
-                        />
-                    )
-                })}
-            </ul>
-
-            <div id="new-todo-form">
-                <label htmlFor="todo-input">New: </label>
-                <input
-                    type="text"
-                    id="todo-input"
-                    value={newTodoName}
-                    onChange={e => setNewTodoName(e.target.value)}
-                    placeholder="Pick up groceries..."
+            <TodoContext.Provider value={{
+                todos: filteredTodos,
+                addNewTodo,
+                toggleTodo,
+                deleteTodo
+            }}>
+                <TodoFilterForm
+                    filter={filter}
+                    setFilter={setFilter}
+                    hideCompleted={hideCompleted}
+                    setHideCompleted={setHideCompleted}
                 />
-                <button onClick={addNewTodo}>Add</button>
-            </div>
+                <TodoList />
+                <NewTodoForm />
+            </TodoContext.Provider>
         </>
     )
 }
