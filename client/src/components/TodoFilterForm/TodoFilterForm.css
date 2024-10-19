@@ -10,7 +10,7 @@
     padding: 0.75rem 1rem;
     outline: 2px solid transparent;
     outline-offset: 2px;
-    width: 15rem;
+    width: 60vw;
     border-radius: 0.5rem;
     border-width: 2px;
     border-style: solid;
@@ -28,10 +28,4 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-@media (max-width: 639px) {
-    .filter-form-group input {
-        width: 10rem;
-    }
 }

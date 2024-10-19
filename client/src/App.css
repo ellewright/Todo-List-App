@@ -1,5 +1,5 @@
 .app-container {
-    max-width: 80vw;
+    width: 80vw;
     background-color: var(--gray);
     color: white;
     padding: 1rem 1rem;
