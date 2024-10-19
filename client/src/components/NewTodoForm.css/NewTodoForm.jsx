@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
+import "./NewTodoForm.css"
 
 export default function NewTodoForm() {
     const nameRef = useRef()
@@ -17,8 +18,12 @@ export default function NewTodoForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} id="new-todo-form">
-                <label htmlFor="todo-input">New: </label>
+            <form
+                onSubmit={handleSubmit}
+                id="new-todo-form"
+                className="new-todo-form"
+            >
+                <label htmlFor="todo-input"></label>
                 <input
                     autoFocus
                     type="text"

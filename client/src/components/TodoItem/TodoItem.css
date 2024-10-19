@@ -1,0 +1,38 @@
+.list-item {
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.list-item-label {
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.list-item-label input {
+    display: none;
+}
+
+.todo-name {
+    cursor: pointer;
+}
+
+.todo-name.completed {
+    text-decoration: line-through;
+}
+
+.edit-button {
+    background-color: var(--light-gray);
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.delete-button {
+    background-color: var(--red);
+    margin-left: 0.5rem;
+}

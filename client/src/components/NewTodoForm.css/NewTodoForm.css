@@ -1,18 +1,15 @@
-.filter-form {
-    width: 100%;
+.new-todo-form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.filter-form-group input {
+.new-todo-form input {
     background-color: var(--dark-gray);
     color: white;
     padding: 0.75rem 1rem;
     outline: 2px solid transparent;
     outline-offset: 2px;
     width: 16rem;
-    border-radius: 0.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
     border-width: 2px;
     border-style: solid;
     border-color: var(--dark-gray);
@@ -21,12 +18,13 @@
     transition-duration: 250ms;
 }
 
-.filter-form-group input:focus {
+.new-todo-form input:focus {
     border-color: white;
 }
 
-.checkbox-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.new-todo-form button {
+    background-color: white;
+    color: black;
+    width: 5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
 }

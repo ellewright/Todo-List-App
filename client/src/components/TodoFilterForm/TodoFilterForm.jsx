@@ -22,7 +22,7 @@ export default function TodoFilterForm({ filter, setFilter, hideCompleted, setHi
                             checked={hideCompleted}
                             onChange={(e) => setHideCompleted(e.target.checked)}
                         />
-                        Hide Completed
+                        <p>Hide Completed</p>
                     </div>
                 </label>
             </div>

@@ -40,15 +40,20 @@ export default function TodoItem({ id, name, completed }) {
                             data-list-item-checkbox
                             onChange={e => toggleTodo(id, e.target.checked)}
                         />
-                        <span data-list-item-text>{name}</span>
+                        <span
+                            data-list-item-text
+                            className={`todo-name ${completed ? "completed" : ""}`}
+                        >{name}</span>
                     </label>
                     <button
+                        className="edit-button"
                         data-button-edit
                         onClick={() => setIsEditing(true)}
                     >
                         Edit
                     </button>
                     <button
+                        className="delete-button"
                         onClick={() => deleteTodo(id)}
                         data-button-delete
                     >

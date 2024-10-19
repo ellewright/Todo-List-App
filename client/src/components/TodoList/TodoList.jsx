@@ -9,7 +9,7 @@ export default function TodoList() {
     return (
         <>
             <div className="list-container">
-                <ul id="list">
+                <ul id="list" className="list">
                     {todos.map(todo => {
                         return (
                             <TodoItem

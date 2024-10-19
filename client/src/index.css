@@ -7,6 +7,9 @@
 
     --dark-gray: #222;
     --gray: #444;
+    --light-gray: #777;
+
+    --red: #e11d48;
 }
 
 * {
