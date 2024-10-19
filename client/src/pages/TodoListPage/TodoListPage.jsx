@@ -1,4 +1,4 @@
-import NewTodoForm from "../../components/NewTodoForm.css/NewTodoForm"
+import NewTodoForm from "../../components/NewTodoForm/NewTodoForm"
 import { useEffect, useReducer, createContext, useState } from "react"
 import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
