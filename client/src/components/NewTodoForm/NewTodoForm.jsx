@@ -29,7 +29,7 @@ export default function NewTodoForm() {
                     type="text"
                     id="todo-input"
                     ref={nameRef}
-                    placeholder="Pick up groceries..."
+                    placeholder="Go to gym..."
                 />
                 <button>Add</button>
             </form>

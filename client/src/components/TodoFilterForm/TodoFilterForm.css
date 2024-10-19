@@ -6,11 +6,11 @@
 
 .filter-form-group input {
     background-color: var(--dark-gray);
-    color: white;
+    color: var(--green);
     padding: 0.75rem 1rem;
     outline: 2px solid transparent;
     outline-offset: 2px;
-    width: 20rem;
+    width: 15rem;
     border-radius: 0.5rem;
     border-width: 2px;
     border-style: solid;
@@ -21,7 +21,7 @@
 }
 
 .filter-form-group input:focus {
-    border-color: white;
+    border-color: var(--green);
 }
 
 .checkbox-container {

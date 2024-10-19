@@ -8,11 +8,11 @@
 
 .list-item form input {
     background-color: var(--dark-gray);
-    color: white;
+    color: var(--green);
     padding: 0.75rem 1rem;
     outline: 2px solid transparent;
     outline-offset: 2px;
-    width: 15rem;
+    width: 10rem;
     border-radius: 0.5rem 0 0 0.5rem;
     border-width: 2px;
     border-style: solid;
@@ -23,12 +23,12 @@
 }
 
 .list-item form input:focus {
-    border-color: white;
+    border-color: var(--green);
 }
 
 .list-item form button {
-    background-color: white;
-    color: black;
+    background-image: linear-gradient(to bottom right, var(--green), var(--blue));
+    color: white;
     width: 5rem;
     border-radius: 0 0.5rem 0.5rem 0;
 }
