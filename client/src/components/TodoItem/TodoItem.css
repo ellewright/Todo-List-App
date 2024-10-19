@@ -2,6 +2,43 @@
     padding: 0.5rem 0 0.5rem 0;
 }
 
+.list-item form {
+    display: flex;
+}
+
+.list-item form input {
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 0.75rem 1rem;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    width: 15rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--dark-gray);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
+}
+
+.list-item form input:focus {
+    border-color: white;
+}
+
+.list-item form button {
+    background-color: white;
+    color: black;
+    width: 5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.list-item div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .list-item-label {
     padding-right: 0.5rem;
     margin-right: 0.5rem;
@@ -15,10 +52,15 @@
 
 .todo-name {
     cursor: pointer;
+    word-break: break-word;
 }
 
 .todo-name.completed {
     text-decoration: line-through;
+}
+
+.button-container {
+    display: flex;
 }
 
 .edit-button {
