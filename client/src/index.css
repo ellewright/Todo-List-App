@@ -8,6 +8,7 @@
     --dark-gray: #222;
     --gray: #444;
     --light-gray: #777;
+    --lighter-gray: #999;
 
     --red: #e11d48;
     --green: #22c55e;
@@ -22,7 +23,7 @@
 
 body {
     height: 100vh;
-    background-color: var(--dark-gray);
+    background-color: var(--lighter-gray);
     font-family: var(--font-family);
     display: flex;
     justify-content: center;

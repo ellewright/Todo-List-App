@@ -20,6 +20,16 @@
     transition-duration: 250ms;
 }
 
+.filter-form-group input.light {
+    background-color: var(--lighter-gray);
+    border-color: var(--light-gray);
+    color: white;
+}
+
+.filter-form-group input.light::placeholder {
+    color: white;
+}
+
 .filter-form-group input:focus {
     border-color: var(--green);
 }

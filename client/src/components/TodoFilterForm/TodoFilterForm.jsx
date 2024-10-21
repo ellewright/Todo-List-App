@@ -1,6 +1,10 @@
+import { useContext } from "react"
 import "./TodoFilterForm.css"
+import { DarkModeContext } from "../../App"
 
 export default function TodoFilterForm({ filter, setFilter, hideCompleted, setHideCompleted }) {
+    const { isDarkMode } = useContext(DarkModeContext)
+
     return (
         <>
             <div className="filter-form">
@@ -12,6 +16,7 @@ export default function TodoFilterForm({ filter, setFilter, hideCompleted, setHi
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                         placeholder="Search"
+                        className={`${!isDarkMode ? "light" : ""}`}
                     />
                 </div>
                 <label>

@@ -1,10 +1,12 @@
 import { useContext, useRef } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
 import "./NewTodoForm.css"
+import { DarkModeContext } from "../../App"
 
 export default function NewTodoForm() {
     const nameRef = useRef()
     const { addNewTodo } = useContext(TodoContext)
+    const { isDarkMode } = useContext(DarkModeContext)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,6 +32,7 @@ export default function NewTodoForm() {
                     id="todo-input"
                     ref={nameRef}
                     placeholder="Go to gym..."
+                    className={`${!isDarkMode ? "light" : ""}`}
                 />
                 <button>Add</button>
             </form>

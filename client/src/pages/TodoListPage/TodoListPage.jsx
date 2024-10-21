@@ -1,8 +1,9 @@
 import NewTodoForm from "../../components/NewTodoForm/NewTodoForm"
-import { useEffect, useReducer, createContext, useState } from "react"
+import { useEffect, useReducer, createContext, useState, useContext } from "react"
 import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
 import "./TodoListPage.css"
+import { DarkModeContext } from "../../App"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -45,6 +46,8 @@ function reducer(todos, { type, payload }) {
 export default function TodoListPage() {
     const [filter, setFilter] = useState("")
     const [hideCompleted, setHideCompleted] = useState(false)
+
+    const { isDarkMode } = useContext(DarkModeContext)
 
     const [todos, dispatch] = useReducer(reducer, [], (initialValue) => {
         const value = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -93,7 +96,7 @@ export default function TodoListPage() {
 
     return (
         <>
-            <div className="page-container">
+            <div className={`page-container ${!isDarkMode ? "light" : ""}`}>
                 <TodoContext.Provider value={{
                     todos: filteredTodos,
                     addNewTodo,

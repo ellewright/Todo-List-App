@@ -1,11 +1,14 @@
 import { useContext, useRef, useState } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
 import "./TodoItem.css"
+import { DarkModeContext } from "../../App"
 
 export default function TodoItem({ id, name, completed }) {
     const { toggleTodo, deleteTodo, updateTodo } = useContext(TodoContext)
     const [isEditing, setIsEditing] = useState(false)
     const nameRef = useRef()
+
+    const { isDarkMode } = useContext(DarkModeContext)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -26,6 +29,7 @@ export default function TodoItem({ id, name, completed }) {
                         type="text"
                         defaultValue={name}
                         ref={nameRef}
+                        className={`${!isDarkMode ? "light" : ""}`}
                     />
                     <button>
                         Save
@@ -48,7 +52,7 @@ export default function TodoItem({ id, name, completed }) {
                         </label>
                         <div className="button-container">
                             <button
-                                className="edit-button"
+                                className={`edit-button ${!isDarkMode ? "light" : ""}`}
                                 data-button-edit
                                 onClick={() => setIsEditing(true)}
                             >

@@ -5,3 +5,22 @@
     padding: 1rem 1rem;
     border-radius: 5px;
 }
+
+.app-container.light {
+    background-color: white;
+    color: var(--light-gray);
+    border: 2px solid var(--light-gray)
+}
+
+.theme-button {
+    background-color: var(--lighter-gray);
+    color: var(--dark-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+.theme-button.light {
+    background-color: var(--dark-gray);
+    color: white;
+}

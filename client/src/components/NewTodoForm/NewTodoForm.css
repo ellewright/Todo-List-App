@@ -18,12 +18,22 @@
     transition-duration: 250ms;
 }
 
+.new-todo-form input.light {
+    background-color: var(--lighter-gray);
+    border-color: var(--light-gray);
+    color: white;
+}
+
+.new-todo-form input.light::placeholder {
+    color: white;
+}
+
 .new-todo-form input:focus {
     border-color: var(--green);
 }
 
 .new-todo-form button {
-    background-image: linear-gradient(to bottom right, var(--green), var(--blue));
+    background-image: linear-gradient(to right, var(--green), var(--blue));
     color: white;
     width: 5rem;
     border-radius: 0 0.5rem 0.5rem 0;
