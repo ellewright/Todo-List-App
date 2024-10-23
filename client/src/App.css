@@ -24,3 +24,9 @@
     background-color: var(--dark-gray);
     color: white;
 }
+
+@media only screen and (max-width: 325px) {
+    .app-container {
+        display: none;
+    }
+}
