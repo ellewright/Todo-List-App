@@ -38,4 +38,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 0.5rem;
+}
+
+.checkbox-container p {
+    margin-left: 0.5rem;
 }
