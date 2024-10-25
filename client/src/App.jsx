@@ -1,13 +1,35 @@
 import TodoListPage from "./pages/TodoListPage/TodoListPage"
 import "./App.css"
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useReducer, useState } from "react"
+
+const DARK_MODE_KEY = "DARK_MODE"
 
 export const DarkModeContext = createContext()
 
+const DARK_MODE_ACTIONS = {
+  TOGGLE: "TOGGLE"
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case DARK_MODE_ACTIONS.TOGGLE:
+      return !state
+    default:
+      return state
+  }
+}
+
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode, dispatch] = useReducer(reducer, false, (initialValue) => {
+    const value = localStorage.getItem(DARK_MODE_KEY)
+    if (value == null) return initialValue
+
+    return JSON.parse(value)
+  })
 
   useEffect(() => {
+    localStorage.setItem(DARK_MODE_KEY, JSON.stringify(isDarkMode))
+
     document.body.style.backgroundColor = !isDarkMode ?
       "white" : "var(--dark-gray)"
 
@@ -28,7 +50,7 @@ function App() {
         </DarkModeContext.Provider>
         <button
           className={`theme-button ${!isDarkMode ? "light" : ""}`}
-          onClick={() => setIsDarkMode(t => !t)}
+          onClick={() => dispatch({ type: "TOGGLE" })}
         >
           {!isDarkMode ? "Dark" : "Light"} Mode
         </button>

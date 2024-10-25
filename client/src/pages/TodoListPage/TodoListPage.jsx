@@ -2,8 +2,8 @@ import NewTodoForm from "../../components/NewTodoForm/NewTodoForm"
 import { useEffect, useReducer, createContext, useState, useContext } from "react"
 import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
-import "./TodoListPage.css"
 import { DarkModeContext } from "../../App"
+import "./TodoListPage.css"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
