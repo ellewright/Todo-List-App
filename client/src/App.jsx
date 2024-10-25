@@ -10,8 +10,8 @@ const DARK_MODE_ACTIONS = {
   TOGGLE: "TOGGLE"
 }
 
-function reducer(state, action) {
-  switch (action.type) {
+function reducer(state, { type }) {
+  switch (type) {
     case DARK_MODE_ACTIONS.TOGGLE:
       return !state
     default:
@@ -31,7 +31,7 @@ function App() {
     localStorage.setItem(DARK_MODE_KEY, JSON.stringify(isDarkMode))
 
     document.body.style.backgroundColor = !isDarkMode ?
-      "white" : "var(--dark-gray)"
+      "var(--lighter-gray)" : "var(--dark-gray)"
 
     return () => {
       document.body.style.backgroundColor = ""
@@ -50,7 +50,7 @@ function App() {
         </DarkModeContext.Provider>
         <button
           className={`theme-button ${!isDarkMode ? "light" : ""}`}
-          onClick={() => dispatch({ type: "TOGGLE" })}
+          onClick={() => dispatch({ type: DARK_MODE_ACTIONS.TOGGLE })}
         >
           {!isDarkMode ? "Dark" : "Light"} Mode
         </button>
