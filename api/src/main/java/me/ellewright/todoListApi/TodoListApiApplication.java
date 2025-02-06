@@ -1,4 +1,4 @@
-package me.ellewright.todoListApi;
+package me.ellewright.todolistapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
