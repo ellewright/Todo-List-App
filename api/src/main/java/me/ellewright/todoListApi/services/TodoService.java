@@ -16,4 +16,10 @@ public class TodoService {
     public List<Todo> getAllTodos() {
         return todoRepository.findAll();
     }
+
+    public Todo createNewTodo(String name) {
+        Todo newTodo = new Todo();
+        newTodo.setName(name);
+        return todoRepository.save(newTodo);
+    }
 }
