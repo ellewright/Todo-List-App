@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,14 @@ public class UserController {
                 user.getEmail(),
                 user.getPassword());
         return new ResponseEntity<User>(newUser, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User user) {
+        ObjectId idToUpdate = new ObjectId(id);
+        User updatedUser = userService.updateUser(idToUpdate, user);
+
+        return new ResponseEntity<User>(updatedUser, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

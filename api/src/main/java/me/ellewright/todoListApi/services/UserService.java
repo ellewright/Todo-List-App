@@ -1,6 +1,7 @@
 package me.ellewright.todolistapi.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,22 @@ public class UserService {
         newUser.setPassword(password);
 
         return userRepository.save(newUser);
+    }
+
+    public User updateUser(ObjectId objectId, User user) {
+        Optional<User> optionalUpdatingUser = userRepository.findById(objectId);
+
+        if (optionalUpdatingUser.isPresent()) {
+            User updatingUser = optionalUpdatingUser.get();
+            updatingUser.setFirstName(user.getFirstName());
+            updatingUser.setLastName(user.getLastName());
+            updatingUser.setEmail(user.getEmail());
+            updatingUser.setPassword(user.getPassword());
+
+            return userRepository.save(updatingUser);
+        }
+
+        return null;
     }
 
     public void deleteUser(ObjectId objectId) {
