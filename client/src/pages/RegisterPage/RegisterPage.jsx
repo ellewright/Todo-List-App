@@ -1,0 +1,67 @@
+import { useState } from "react"
+import api from "../../api/axiosConfig"
+import "./RegisterPage.css"
+
+export default function RegisterPage() {
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [retypedPassword, setRetypedPassword] = useState("")
+
+    const handleFirstName = (e) => {
+        setFirstName(e.target.value)
+    }
+
+    const handleLastName = (e) => {
+        setLastName(e.target.value)
+    }
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handleRetypedPassword = (e) => {
+        setRetypedPassword(e.target.value)
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        if (password === retypedPassword) {
+            try {
+                const response = await api.post("/api/v1/users/register", {
+                    firstName,
+                    lastName,
+                    email,
+                    password
+                })
+                const data = response.data
+                console.log("Submitted: ", email, password)
+                console.log(data)
+            } catch (e) {
+                console.error(e)
+            }
+        } else {
+            console.log("Password fields do not match!")
+        }
+
+    }
+
+    return (
+        <>
+            <form action="" className="register-form" onSubmit={handleSubmit}>
+                <input type="text" placeholder="First name." value={firstName} onChange={handleFirstName} />
+                <input type="text" placeholder="Last name." value={lastName} onChange={handleLastName} />
+                <input type="email" placeholder="email@address.com" value={email} onChange={handleEmail} />
+                <input type="password" placeholder="Password." value={password} onChange={handlePassword} />
+                <input type="password" placeholder="Retype password." value={retypedPassword} onChange={handleRetypedPassword} />
+                <input type="submit" />
+            </form>
+        </>
+    )
+}

@@ -32,13 +32,13 @@ public class UserController {
         return new ResponseEntity<List<User>>(allUsers, HttpStatus.OK);
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<User> getUserByEmailAndPassword(@RequestBody User user) {
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
         User retrievedUser = userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
         return new ResponseEntity<User>(retrievedUser, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User newUser = userService.createUser(
                 user.getFirstName(),

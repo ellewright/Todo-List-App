@@ -1,6 +1,8 @@
 import TodoListPage from "./pages/TodoListPage/TodoListPage"
 import "./App.css"
 import { createContext, useEffect, useReducer, useState } from "react"
+import LoginPage from "./pages/LoginPage/LoginPage"
+import RegisterPage from "./pages/RegisterPage/RegisterPage"
 
 const DARK_MODE_KEY = "DARK_MODE"
 
