@@ -2,6 +2,7 @@ package me.ellewright.todolistapi.services;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,9 @@ public class UserService {
         newUser.setPassword(password);
 
         return userRepository.save(newUser);
+    }
+
+    public void deleteUser(ObjectId objectId) {
+        userRepository.deleteById(objectId);
     }
 }
