@@ -8,5 +8,5 @@ import me.ellewright.todolistapi.entities.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, ObjectId> {
-
+    User findByEmailAndPassword(String email, String password);
 }
