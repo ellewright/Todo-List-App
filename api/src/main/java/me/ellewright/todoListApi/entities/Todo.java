@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class Todo {
     @Id
     private String id;
+    private String userId;
     private String name;
     private boolean completed;
 }

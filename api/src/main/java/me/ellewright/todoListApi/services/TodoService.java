@@ -19,6 +19,10 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
+    public List<Todo> getTodosByUserId(String userId) {
+        return todoRepository.findByUserId(userId);
+    }
+
     public Todo getTodoById(ObjectId objectId) {
         Optional<Todo> optionalRetrievedTodo = todoRepository.findById(objectId);
 
@@ -30,10 +34,15 @@ public class TodoService {
         return null;
     }
 
-    public Todo createNewTodo(String name) {
-        Todo newTodo = new Todo();
-        newTodo.setName(name);
-        return todoRepository.save(newTodo);
+    public Todo createNewTodo(String userId, Todo todo) {
+        // Todo newTodo = new Todo();
+        // newTodo.setUserId(userId);
+        // newTodo.setName(name);
+        // newTodo.setCompleted(false);
+        // return todoRepository.save(newTodo);
+
+        todo.setUserId(userId);
+        return todoRepository.save(todo);
     }
 
     public Todo updateTodo(ObjectId objectId, Todo todo) {

@@ -23,7 +23,6 @@ import me.ellewright.todolistapi.services.TodoService;
 @RequestMapping("/api/v1/todos")
 @CrossOrigin(origins = "*")
 public class TodoController {
-
     @Autowired
     private TodoService todoService;
 
@@ -41,9 +40,14 @@ public class TodoController {
         return new ResponseEntity<Todo>(retrievedTodo, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Todo> createNewTodo(@RequestBody String name) {
-        Todo createdTodo = todoService.createNewTodo(name);
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Todo>> getTodosByUserId(@PathVariable String userId) {
+        return new ResponseEntity<List<Todo>>(todoService.getTodosByUserId(userId), HttpStatus.OK);
+    }
+
+    @PostMapping("/{userId}")
+    public ResponseEntity<Todo> createNewTodo(@PathVariable String userId, @RequestBody Todo todo) {
+        Todo createdTodo = todoService.createNewTodo(userId, todo);
         return new ResponseEntity<Todo>(createdTodo, HttpStatus.OK);
     }
 
