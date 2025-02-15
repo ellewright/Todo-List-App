@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.ellewright.todolistapi.entities.User;
+import me.ellewright.todolistapi.exceptions.InvalidRegistrationException;
+import me.ellewright.todolistapi.exceptions.UserNotFoundException;
 import me.ellewright.todolistapi.repositories.UserRepository;
 
 @Service
@@ -20,10 +22,20 @@ public class UserService {
     }
 
     public User getUserByEmailAndPassword(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password);
+        User retrievedUser = userRepository.findByEmailAndPassword(email, password);
+
+        if (retrievedUser == null) {
+            throw new UserNotFoundException("Invalid credentials.");
+        }
+
+        return retrievedUser;
     }
 
     public User createUser(String firstName, String lastName, String email, String password) {
+        if (userRepository.findByEmail(email) != null) {
+            throw new InvalidRegistrationException("Sorry, an account with that email already exists!");
+        }
+
         User newUser = new User();
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
