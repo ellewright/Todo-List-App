@@ -1,9 +1,10 @@
 import { useState } from "react"
 import api from "../../api/axiosConfig"
 import "./RegisterPage.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function RegisterPage() {
+    const navigate = useNavigate()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -42,6 +43,7 @@ export default function RegisterPage() {
                     password
                 })
                 console.log("Successfully registered!")
+                navigate("/login")
             } catch (e) {
                 console.error(e)
             }
