@@ -4,6 +4,8 @@ import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
 import { DarkModeContext } from "../../App"
 import "./TodoListPage.css"
+import { useAuth } from "../../contexts/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -44,6 +46,8 @@ function reducer(todos, { type, payload }) {
 }
 
 export default function TodoListPage() {
+    const { logout } = useAuth()
+    const navigate = useNavigate()
     const [filter, setFilter] = useState("")
     const [hideCompleted, setHideCompleted] = useState(false)
 
@@ -94,6 +98,10 @@ export default function TodoListPage() {
         dispatch({ type: ACTIONS.DELETE, payload: { id: todoId } })
     }
 
+    function handleLogout() {
+        logout()
+    }
+
     return (
         <>
             <div className={`page-container ${!isDarkMode ? "light" : ""}`}>
@@ -114,6 +122,7 @@ export default function TodoListPage() {
                     <NewTodoForm />
                 </TodoContext.Provider>
             </div>
+            <button onClick={() => handleLogout()}>Logout</button>
         </>
     )
 }

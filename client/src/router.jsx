@@ -3,6 +3,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TodoListPage from "./pages/TodoListPage/TodoListPage";
 import App from "./App";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -23,7 +24,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "todos",
-                element: <TodoListPage />
+                element: (
+                    <ProtectedRoute>
+                        <TodoListPage />
+                    </ProtectedRoute>
+                )
             }
         ]
     }

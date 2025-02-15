@@ -1,9 +1,12 @@
 import { useState } from "react"
 import api from "../../api/axiosConfig"
 import "./LoginPage.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../../contexts/AuthContext"
 
 export default function LoginPage() {
+    const { login } = useAuth()
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -20,7 +23,10 @@ export default function LoginPage() {
 
         try {
             const response = await api.post("/api/v1/users/login", { email, password })
+            const userData = response.data
+            login(userData)
             console.log("Successfully logged in!")
+            navigate("/todos")
         } catch (e) {
             console.error(e)
         }
