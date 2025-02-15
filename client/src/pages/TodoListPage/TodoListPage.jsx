@@ -66,7 +66,6 @@ export default function TodoListPage() {
             try {
                 const retrievedTodos = await fetchTodos(user?.id)
                 dispatch({ type: ACTIONS.ADD, payload: retrievedTodos })
-                console.log("First retrieved todo:", retrievedTodos[0]);
             } catch (e) {
                 console.error("Failed to retrieve todos: " + e)
             }
@@ -123,8 +122,6 @@ export default function TodoListPage() {
     function handleLogout() {
         logout()
     }
-
-    console.log(user)
 
     return (
         <>

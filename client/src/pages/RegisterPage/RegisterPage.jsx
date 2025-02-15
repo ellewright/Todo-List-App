@@ -42,7 +42,6 @@ export default function RegisterPage() {
                     email,
                     password
                 })
-                console.log("Successfully registered!")
                 navigate("/login")
             } catch (e) {
                 console.error(e)
