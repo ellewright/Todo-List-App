@@ -46,7 +46,7 @@ export default function RegisterPage() {
                 console.error(e)
             }
         } else {
-            console.log("Password fields do not match!")
+            console.error("Password fields do not match!")
         }
 
     }

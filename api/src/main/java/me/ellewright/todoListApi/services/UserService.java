@@ -36,6 +36,10 @@ public class UserService {
             throw new InvalidRegistrationException("Sorry, an account with that email already exists!");
         }
 
+        if ((firstName.equals("")) || (lastName.equals("")) || (email.equals("")) || (password.equals(""))) {
+            throw new InvalidRegistrationException("All fields must be completed to register.");
+        }
+
         User newUser = new User();
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);

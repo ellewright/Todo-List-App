@@ -49,7 +49,7 @@ function App() {
             isDarkMode
           }}
         >
-          {/* <Outlet /> */}
+          <Outlet />
         </DarkModeContext.Provider>
         <button
           className={`theme-button ${!isDarkMode ? "light" : ""}`}
