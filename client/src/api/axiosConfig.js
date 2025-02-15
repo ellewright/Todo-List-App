@@ -29,3 +29,9 @@ export async function addTodo(userId, newTodo) {
     if (!response.ok) throw new Error("Failed to add todo.")
     return await response.json()
 }
+
+export async function deleteTodoFromAPI(id) {
+    return await fetch(`${baseURL}/api/v1/todos/${id}`, {
+        method: 'DELETE',
+    })
+}

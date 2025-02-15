@@ -6,14 +6,14 @@ import { DarkModeContext } from "../../App"
 import "./TodoListPage.css"
 import { useAuth } from "../../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
-import { fetchTodos, addTodo } from "../../api/axiosConfig"
+import { fetchTodos, addTodo, deleteTodoFromAPI } from "../../api/axiosConfig"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
     ADD: "ADD",
     TOGGLE: "TOGGLE",
     UPDATE: "UPDATE",
-    DELETE: "DELETE"
+    REMOVE: "REMOVE"
 }
 
 export const TodoContext = createContext()
@@ -43,7 +43,7 @@ function reducer(todos, { type, payload }) {
 
                 return todo
             })
-        case ACTIONS.DELETE:
+        case ACTIONS.REMOVE:
             return todos.filter(todo => todo.id !== payload.id)
         default:
             throw new Error(`No action found for ${type}.`)
@@ -115,8 +115,9 @@ export default function TodoListPage() {
         })
     }
 
-    function deleteTodo(todoId) {
-        dispatch({ type: ACTIONS.DELETE, payload: { id: todoId } })
+    async function deleteTodo(todoId) {
+        const response = await deleteTodoFromAPI(todoId)
+        dispatch({ type: ACTIONS.REMOVE, payload: { id: todoId } })
     }
 
     function handleLogout() {
