@@ -1,6 +1,7 @@
 import { useState } from "react"
 import api from "../../api/axiosConfig"
 import "./LoginPage.css"
+import { Link } from "react-router-dom"
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
@@ -19,9 +20,7 @@ export default function LoginPage() {
 
         try {
             const response = await api.post("/api/v1/users/login", { email, password })
-            const data = response.data
-            console.log("Submitted: ", email, password)
-            console.log(data)
+            console.log("Successfully logged in!")
         } catch (e) {
             console.error(e)
         }
@@ -35,6 +34,7 @@ export default function LoginPage() {
                 <input type="password" placeholder="Password." value={password} onChange={handlePassword} />
                 <input type="submit" />
             </form>
+            <Link to="/register">Register</Link>
         </>
     )
 }

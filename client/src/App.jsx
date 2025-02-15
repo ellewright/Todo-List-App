@@ -3,6 +3,7 @@ import "./App.css"
 import { createContext, useEffect, useReducer, useState } from "react"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import RegisterPage from "./pages/RegisterPage/RegisterPage"
+import { Outlet } from "react-router-dom"
 
 const DARK_MODE_KEY = "DARK_MODE"
 
@@ -48,7 +49,7 @@ function App() {
             isDarkMode
           }}
         >
-          <TodoListPage />
+          {/* <Outlet /> */}
         </DarkModeContext.Provider>
         <button
           className={`theme-button ${!isDarkMode ? "light" : ""}`}

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import api from "../../api/axiosConfig"
 import "./RegisterPage.css"
+import { Link } from "react-router-dom"
 
 export default function RegisterPage() {
     const [firstName, setFirstName] = useState("")
@@ -40,9 +41,7 @@ export default function RegisterPage() {
                     email,
                     password
                 })
-                const data = response.data
-                console.log("Submitted: ", email, password)
-                console.log(data)
+                console.log("Successfully registered!")
             } catch (e) {
                 console.error(e)
             }
@@ -62,6 +61,7 @@ export default function RegisterPage() {
                 <input type="password" placeholder="Retype password." value={retypedPassword} onChange={handleRetypedPassword} />
                 <input type="submit" />
             </form>
+            <Link to="/login">Login</Link>
         </>
     )
 }
