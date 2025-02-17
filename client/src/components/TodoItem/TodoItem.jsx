@@ -14,7 +14,10 @@ export default function TodoItem({ id, name, completed }) {
         e.preventDefault()
 
         if (nameRef.current.value === "") return
-        updateTodo(id, nameRef.current.value)
+        updateTodo(id, {
+            name: nameRef.current.value,
+            completed: completed
+        })
         setIsEditing(false)
     }
 

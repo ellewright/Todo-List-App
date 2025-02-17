@@ -6,7 +6,7 @@ import { DarkModeContext } from "../../App"
 import "./TodoListPage.css"
 import { useAuth } from "../../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
-import { fetchTodos, addTodo, deleteTodoFromAPI } from "../../api/axiosConfig"
+import { fetchTodosFromAPI, addTodoFromAPI, updateTodoFromAPI, deleteTodoFromAPI } from "../../api/axiosConfig"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -38,7 +38,7 @@ function reducer(todos, { type, payload }) {
         case ACTIONS.UPDATE:
             return todos.map(todo => {
                 if (todo.id === payload.id) {
-                    return { ...todo, name: payload.name }
+                    return { ...todo, name: payload.todo.name, completed: payload.todo.completed }
                 }
 
                 return todo
@@ -64,7 +64,7 @@ export default function TodoListPage() {
             if (!user?.id) return
 
             try {
-                const retrievedTodos = await fetchTodos(user?.id)
+                const retrievedTodos = await fetchTodosFromAPI(user?.id)
                 dispatch({ type: ACTIONS.ADD, payload: retrievedTodos })
             } catch (e) {
                 console.error("Failed to retrieve todos: " + e)
@@ -87,7 +87,7 @@ export default function TodoListPage() {
         const newTodo = { name: name, completed: false }
 
         try {
-            await addTodo(user?.id, newTodo).then(addedTodo => {
+            await addTodoFromAPI(user?.id, newTodo).then(addedTodo => {
                 dispatch({ type: ACTIONS.ADD, payload: addedTodo })
             })
         } catch (e) {
@@ -105,12 +105,13 @@ export default function TodoListPage() {
         })
     }
 
-    function updateTodo(todoId, todoName) {
+    async function updateTodo(todoId, todo) {
+        const response = await updateTodoFromAPI(todoId, todo)
         dispatch({
             type: ACTIONS.UPDATE,
             payload: {
                 id: todoId,
-                name: todoName
+                todo: todo
             }
         })
     }

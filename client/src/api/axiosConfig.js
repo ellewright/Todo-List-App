@@ -6,7 +6,7 @@ if (!baseURL) throw new Error("Database URL is required but not defined.")
 
 export default axios.create({ baseURL })
 
-export async function fetchTodos(userId) {
+export async function fetchTodosFromAPI(userId) {
     const response = await fetch(`${baseURL}/api/v1/todos/user/${userId}`, {
         method: 'GET',
         headers: {
@@ -17,7 +17,7 @@ export async function fetchTodos(userId) {
     return await response.json()
 }
 
-export async function addTodo(userId, newTodo) {
+export async function addTodoFromAPI(userId, newTodo) {
     const response = await fetch(`${baseURL}/api/v1/todos/${userId}`, {
         method: 'POST',
         headers: {
@@ -34,4 +34,17 @@ export async function deleteTodoFromAPI(id) {
     return await fetch(`${baseURL}/api/v1/todos/${id}`, {
         method: 'DELETE',
     })
+}
+
+export async function updateTodoFromAPI(id, updatedTodo) {
+    const response = await fetch(`${baseURL}/api/v1/todos/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedTodo)
+    })
+
+    if (!response.ok) throw new Error("Failed to update todo.")
+    return await response.json()
 }

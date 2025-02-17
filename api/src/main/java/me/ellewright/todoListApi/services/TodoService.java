@@ -35,18 +35,12 @@ public class TodoService {
     }
 
     public Todo createNewTodo(String userId, Todo todo) {
-        // Todo newTodo = new Todo();
-        // newTodo.setUserId(userId);
-        // newTodo.setName(name);
-        // newTodo.setCompleted(false);
-        // return todoRepository.save(newTodo);
-
         todo.setUserId(userId);
         return todoRepository.save(todo);
     }
 
-    public Todo updateTodo(ObjectId objectId, Todo todo) {
-        Optional<Todo> optionalUpdatingToDo = todoRepository.findById(objectId);
+    public Todo updateTodo(ObjectId todoId, Todo todo) {
+        Optional<Todo> optionalUpdatingToDo = todoRepository.findById(todoId);
 
         if (optionalUpdatingToDo.isPresent()) {
             Todo updatingTodo = optionalUpdatingToDo.get();
