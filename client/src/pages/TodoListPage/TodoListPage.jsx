@@ -88,7 +88,7 @@ export default function TodoListPage() {
 
         try {
             await addTodoFromAPI(user?.id, newTodo).then(addedTodo => {
-                dispatch({ type: ACTIONS.ADD, payload: addedTodo })
+                dispatch({ type: ACTIONS.ADD, payload: [addedTodo] })
             })
         } catch (e) {
             console.error("Failed to add todo: " + e)
