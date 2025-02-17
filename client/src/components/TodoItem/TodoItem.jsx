@@ -46,7 +46,13 @@ export default function TodoItem({ id, name, completed }) {
                                 checked={completed}
                                 type="checkbox"
                                 data-list-item-checkbox
-                                onChange={e => toggleTodo(id, e.target.checked)}
+                                onChange={e => {
+                                    toggleTodo(id, e.target.checked)
+                                    updateTodo(id, {
+                                        name: name,
+                                        completed: e.target.checked
+                                    })
+                                }}
                             />
                             <span
                                 data-list-item-text
