@@ -46,26 +46,26 @@ export default function LoginPage() {
                     className="login-form"
                     onSubmit={handleSubmit}
                 >
-                    <div className="inputs">
+                    <div className="login-inputs">
                         <input
-                            className="input"
+                            className="login-input"
                             type="email"
                             placeholder="email@address.com"
                             value={email}
                             onChange={handleEmail}
                         />
                         <input
-                            className="input"
+                            className="login-input"
                             type="password"
-                            placeholder="password"
+                            placeholder="Password"
                             value={password}
                             onChange={handlePassword}
                         />
                     </div>
-                    <div className="buttons">
+                    <div className="login-buttons">
                         <input
                             type="submit"
-                            className="submit-button"
+                            className="login-submit-button"
                         />
                         <div className="register-container">
                             Don't have an account?

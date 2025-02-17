@@ -19,26 +19,26 @@
     align-items: center;
 }
 
-.inputs {
+.login-inputs {
     width: 12rem;
     display: flex;
     flex-direction: column;
 }
 
-.input {
+.login-input {
     text-indent: 5px;
     border: 1px solid var(--light-gray);
     border-radius: 2.5px;
     margin-bottom: 0.5rem;
 }
 
-.buttons {
+.login-buttons {
     width: 12rem;
     display: flex;
     flex-direction: column;
 }
 
-.submit-button {
+.login-submit-button {
     cursor: pointer;
     color: white;
     background-color: var(--lighter-gray);

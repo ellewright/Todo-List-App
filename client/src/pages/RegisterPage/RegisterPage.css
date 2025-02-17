@@ -1,4 +1,56 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-header {
+    font-size: 3em;
+}
+
+.register-subheader {
+    margin-bottom: 1rem;
+}
+
 .register-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-inputs {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-input {
+    text-indent: 5px;
+    border: 1px solid var(--light-gray);
+    border-radius: 2.5px;
+    margin-bottom: 0.5rem;
+}
+
+.register-buttons {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-submit-button {
+    cursor: pointer;
+    color: white;
+    background-color: var(--lighter-gray);
+    border-radius: 5px;
+}
+
+.login-container {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-button:hover {
+    text-decoration: underline;
 }

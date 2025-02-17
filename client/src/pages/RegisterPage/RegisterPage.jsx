@@ -4,12 +4,13 @@ import "./RegisterPage.css"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function RegisterPage() {
-    const navigate = useNavigate()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [retypedPassword, setRetypedPassword] = useState("")
+
+    const navigate = useNavigate()
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value)
@@ -36,7 +37,7 @@ export default function RegisterPage() {
 
         if (password === retypedPassword) {
             try {
-                const response = await api.post("/api/v1/users/register", {
+                await api.post("/api/v1/users/register", {
                     firstName,
                     lastName,
                     email,
@@ -49,20 +50,75 @@ export default function RegisterPage() {
         } else {
             console.error("Password fields do not match!")
         }
-
     }
 
     return (
         <>
-            <form action="" className="register-form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="First name." value={firstName} onChange={handleFirstName} />
-                <input type="text" placeholder="Last name." value={lastName} onChange={handleLastName} />
-                <input type="email" placeholder="email@address.com" value={email} onChange={handleEmail} />
-                <input type="password" placeholder="Password." value={password} onChange={handlePassword} />
-                <input type="password" placeholder="Retype password." value={retypedPassword} onChange={handleRetypedPassword} />
-                <input type="submit" />
-            </form>
-            <Link to="/login">Login</Link>
+            <div className="register-page">
+                <h1 className="register-header">
+                    Welcome!
+                </h1>
+                <p className="register-subheader">
+                    Please register your account below:
+                </p>
+                <form
+                    className="register-form"
+                    onSubmit={handleSubmit}
+                >
+                    <div className="register-inputs">
+                        <input
+                            className="register-input"
+                            type="text"
+                            placeholder="First name"
+                            value={firstName}
+                            onChange={handleFirstName}
+                        />
+                        <input
+                            className="register-input"
+                            type="text"
+                            placeholder="Last name"
+                            value={lastName}
+                            onChange={handleLastName}
+                        />
+                        <input
+                            className="register-input"
+                            type="email"
+                            placeholder="email@address.com"
+                            value={email}
+                            onChange={handleEmail}
+                        />
+                        <input
+                            className="register-input"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handlePassword}
+                        />
+                        <input
+                            className="register-input"
+                            type="password"
+                            placeholder="Confirm password"
+                            value={retypedPassword}
+                            onChange={handleRetypedPassword}
+                        />
+                    </div>
+                    <div className="register-buttons">
+                        <input
+                            className="register-submit-button"
+                            type="submit"
+                        />
+                        <div className="login-container">
+                            Already have an account?
+                            <Link
+                                className="login-button"
+                                to="/login"
+                            >
+                                Login
+                            </Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
