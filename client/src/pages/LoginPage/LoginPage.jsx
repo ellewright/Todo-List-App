@@ -5,10 +5,11 @@ import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
 
 export default function LoginPage() {
-    const { login } = useAuth()
-    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const { login } = useAuth()
+    const navigate = useNavigate()
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -34,12 +35,50 @@ export default function LoginPage() {
 
     return (
         <>
-            <form action="" className="login-form" onSubmit={handleSubmit}>
-                <input type="email" placeholder="email@address.com" value={email} onChange={handleEmail} />
-                <input type="password" placeholder="Password." value={password} onChange={handlePassword} />
-                <input type="submit" />
-            </form>
-            <Link to="/register">Register</Link>
+            <div className="login-page">
+                <h1 className="login-header">
+                    Welcome!
+                </h1>
+                <p className="login-subheader">
+                    Please log in:
+                </p>
+                <form
+                    className="login-form"
+                    onSubmit={handleSubmit}
+                >
+                    <div className="inputs">
+                        <input
+                            className="input"
+                            type="email"
+                            placeholder="email@address.com"
+                            value={email}
+                            onChange={handleEmail}
+                        />
+                        <input
+                            className="input"
+                            type="password"
+                            placeholder="password"
+                            value={password}
+                            onChange={handlePassword}
+                        />
+                    </div>
+                    <div className="buttons">
+                        <input
+                            type="submit"
+                            className="submit-button"
+                        />
+                        <div className="register-container">
+                            Don't have an account?
+                            <Link
+                                to="/register"
+                                className="register-button"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
