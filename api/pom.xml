@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>23</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,18 +64,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>io.takari</groupId>
-				<artifactId>maven</artifactId>
-				<version>0.7.7</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>wrapper</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
