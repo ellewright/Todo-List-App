@@ -10,6 +10,8 @@ export default function RegisterPage() {
     const [password, setPassword] = useState("")
     const [retypedPassword, setRetypedPassword] = useState("")
 
+    const [hasError, setHasError] = useState(false)
+
     const navigate = useNavigate()
 
     const handleFirstName = (e) => {
@@ -45,10 +47,10 @@ export default function RegisterPage() {
                 })
                 navigate("/login")
             } catch (e) {
-                console.error(e)
+                setHasError(true)
             }
         } else {
-            console.error("Password fields do not match!")
+            setHasError(true)
         }
     }
 
@@ -101,6 +103,11 @@ export default function RegisterPage() {
                             value={retypedPassword}
                             onChange={handleRetypedPassword}
                         />
+                    </div>
+                    <div className={`error-container ${!hasError ? "hidden" : ""}`}>
+                        <p>
+                            Registration failed: All fields must be completed.
+                        </p>
                     </div>
                     <div className="register-buttons">
                         <input
