@@ -32,6 +32,12 @@
     margin-bottom: 0.5rem;
 }
 
+.error-container {
+    color: var(--red);
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+}
+
 .login-buttons {
     width: 12rem;
     display: flex;

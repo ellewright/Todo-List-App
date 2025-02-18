@@ -7,6 +7,7 @@ import { useAuth } from "../../contexts/AuthContext"
 export default function LoginPage() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [hasError, setHasError] = useState(false)
 
     const { login } = useAuth()
     const navigate = useNavigate()
@@ -28,7 +29,7 @@ export default function LoginPage() {
             login(userData)
             navigate("/todos")
         } catch (e) {
-            console.error(e)
+            setHasError(true)
         }
 
     }
@@ -61,6 +62,11 @@ export default function LoginPage() {
                             value={password}
                             onChange={handlePassword}
                         />
+                    </div>
+                    <div className={`error-container ${!hasError ? "hidden" : ""}`}>
+                        <p>
+                            Incorrect email or password.
+                        </p>
                     </div>
                     <div className="login-buttons">
                         <input
