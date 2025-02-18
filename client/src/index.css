@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    --font-family: "Raleway", sans-serif;
+    --font-family: "Inter", sans-serif;
 
     --dark-gray: #222;
     --gray: #444;
