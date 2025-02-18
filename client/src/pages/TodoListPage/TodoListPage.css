@@ -7,3 +7,11 @@
 .page-container.light {
     background-color: white;
 }
+
+.logout-button {
+    background-color: var(--red);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}

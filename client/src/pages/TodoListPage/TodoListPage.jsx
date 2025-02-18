@@ -145,7 +145,12 @@ export default function TodoListPage() {
                     <NewTodoForm />
                 </TodoContext.Provider>
             </div>
-            <button onClick={() => handleLogout()}>Logout</button>
+            <button
+                className="logout-button"
+                onClick={() => handleLogout()}
+            >
+                Logout
+            </button>
         </>
     )
 }
