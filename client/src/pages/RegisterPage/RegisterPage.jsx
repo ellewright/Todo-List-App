@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import api from "../../api/axiosConfig"
 import "./RegisterPage.css"
 import { Link, useNavigate } from "react-router-dom"
+import { DarkModeContext } from "../../App"
 
 export default function RegisterPage() {
     const [firstName, setFirstName] = useState("")
@@ -11,6 +12,8 @@ export default function RegisterPage() {
     const [retypedPassword, setRetypedPassword] = useState("")
 
     const [hasError, setHasError] = useState(false)
+
+    const { isDarkMode } = useContext(DarkModeContext)
 
     const navigate = useNavigate()
 
@@ -69,35 +72,35 @@ export default function RegisterPage() {
                 >
                     <div className="register-inputs">
                         <input
-                            className="register-input"
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="text"
                             placeholder="First name"
                             value={firstName}
                             onChange={handleFirstName}
                         />
                         <input
-                            className="register-input"
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="text"
                             placeholder="Last name"
                             value={lastName}
                             onChange={handleLastName}
                         />
                         <input
-                            className="register-input"
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="email"
                             placeholder="email@address.com"
                             value={email}
                             onChange={handleEmail}
                         />
                         <input
-                            className="register-input"
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="password"
                             placeholder="Password"
                             value={password}
                             onChange={handlePassword}
                         />
                         <input
-                            className="register-input"
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="password"
                             placeholder="Confirm password"
                             value={retypedPassword}

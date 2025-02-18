@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import api from "../../api/axiosConfig"
 import "./LoginPage.css"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
+import { DarkModeContext } from "../../App"
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
@@ -11,6 +12,8 @@ export default function LoginPage() {
 
     const { login } = useAuth()
     const navigate = useNavigate()
+
+    const { isDarkMode } = useContext(DarkModeContext)
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -49,14 +52,14 @@ export default function LoginPage() {
                 >
                     <div className="login-inputs">
                         <input
-                            className="login-input"
+                            className={`login-input ${!isDarkMode ? "light" : ""}`}
                             type="email"
                             placeholder="email@address.com"
                             value={email}
                             onChange={handleEmail}
                         />
                         <input
-                            className="login-input"
+                            className={`login-input ${!isDarkMode ? "light" : ""}`}
                             type="password"
                             placeholder="Password"
                             value={password}
