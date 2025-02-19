@@ -8,10 +8,31 @@
     background-color: white;
 }
 
-.logout-button {
-    background-color: var(--red);
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
+.buttons-container {
+    width: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 1rem;
+}
+
+.button {
+    font-size: 12px;
+    color: white;
+    border-radius: 99999px;
+    padding: 0.5rem 0.75rem;
+}
+
+.settings {
+    background-color: var(--dark-gray);
+    margin-right: 0.25rem;
+}
+
+.settings.light {
+    background-color: var(--lighter-gray);
+}
+
+.logout {
+    background-color: var(--dark-gray);
+    margin-left: 0.25rem;
 }

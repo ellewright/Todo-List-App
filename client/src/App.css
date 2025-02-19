@@ -13,11 +13,21 @@
 .app-container.light {
     background-color: white;
     color: var(--light-gray);
-    border: 2px solid var(--light-gray)
+    border: 2px solid var(--light-gray);
+}
+
+.filter-form {
+    margin-bottom: 2rem;
+}
+
+.todo-list {}
+
+.new-todo-form {
+    margin-top: 2rem;
 }
 
 .theme-button {
-    background-color: var(--lighter-gray);
+    background-color: var(--light-gray);
     color: white;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;

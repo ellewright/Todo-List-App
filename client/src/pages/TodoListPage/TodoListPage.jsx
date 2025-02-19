@@ -136,21 +136,31 @@ export default function TodoListPage() {
                     deleteTodo
                 }}>
                     <TodoFilterForm
+                        className="filter-form"
                         filter={filter}
                         setFilter={setFilter}
                         hideCompleted={hideCompleted}
                         setHideCompleted={setHideCompleted}
                     />
-                    <TodoList />
-                    <NewTodoForm />
+                    <TodoList
+                        className="todo-list"
+                    />
+                    <NewTodoForm
+                        className="new-todo-form"
+                    />
                 </TodoContext.Provider>
             </div>
-            <button
-                className="logout-button"
-                onClick={() => handleLogout()}
-            >
-                Logout
-            </button>
+            <div className="buttons-container">
+                <button className={`settings button ${!isDarkMode ? "light" : ""}`}>
+                    Settings
+                </button>
+                <button
+                    className="logout button"
+                    onClick={() => handleLogout()}
+                >
+                    Logout
+                </button>
+            </div>
         </>
     )
 }
