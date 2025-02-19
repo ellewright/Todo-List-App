@@ -46,17 +46,13 @@ function App() {
       <div className={`app-container ${!isDarkMode ? "light" : ""}`}>
         <DarkModeContext.Provider
           value={{
-            isDarkMode
+            DARK_MODE_ACTIONS,
+            isDarkMode,
+            dispatch
           }}
         >
           <Outlet />
         </DarkModeContext.Provider>
-        <button
-          className={`theme-button ${!isDarkMode ? "light" : ""}`}
-          onClick={() => dispatch({ type: DARK_MODE_ACTIONS.TOGGLE })}
-        >
-          {!isDarkMode ? "Dark" : "Light"} Mode
-        </button>
       </div>
     </>
   )

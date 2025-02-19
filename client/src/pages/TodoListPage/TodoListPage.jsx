@@ -5,7 +5,7 @@ import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
 import { DarkModeContext } from "../../App"
 import "./TodoListPage.css"
 import { useAuth } from "../../contexts/AuthContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { fetchTodosFromAPI, addTodoFromAPI, updateTodoFromAPI, deleteTodoFromAPI } from "../../api/axiosConfig"
 
 const LOCAL_STORAGE_KEY = "TODOS"
@@ -151,9 +151,12 @@ export default function TodoListPage() {
                 </TodoContext.Provider>
             </div>
             <div className="buttons-container">
-                <button className={`settings button ${!isDarkMode ? "light" : ""}`}>
+                <Link
+                    className={`settings button ${!isDarkMode ? "light" : ""}`}
+                    to="/settings"
+                >
                     Settings
-                </button>
+                </Link>
                 <button
                     className="logout button"
                     onClick={() => handleLogout()}
