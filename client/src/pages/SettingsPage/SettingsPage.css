@@ -8,3 +8,49 @@
 .settings-header {
     font-size: 3em;
 }
+
+.settings-buttons-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    margin-top: 1rem;
+}
+
+.settings-buttons-container>button:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.theme-button {
+    background-color: var(--light-gray);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.theme-button.light {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.password-change-button {
+    background-color: var(--dark-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.password-change-button.light {
+    background-color: var(--light-gray);
+    color: white;
+}
+
+.back-button {
+    background-color: var(--dark-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.back-button.light {
+    background-color: var(--light-gray);
+    color: white;
+}

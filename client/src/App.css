@@ -26,19 +26,6 @@
     margin-top: 2rem;
 }
 
-.theme-button {
-    background-color: var(--light-gray);
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-}
-
-.theme-button.light {
-    background-color: var(--dark-gray);
-    color: white;
-}
-
 @media only screen and (max-width: 325px) {
     .app-container {
         display: none;
