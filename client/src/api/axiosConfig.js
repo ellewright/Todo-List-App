@@ -48,3 +48,17 @@ export async function updateTodoFromAPI(id, updatedTodo) {
     if (!response.ok) throw new Error("Failed to update todo.")
     return await response.json()
 }
+
+export async function updateUserFromAPI(id, updatedUser) {
+    const response = await fetch(`${baseURL}/api/v1/users/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedUser)
+    })
+
+    if (!response.ok) throw new Error("Failed to update user")
+
+    return await response.json()
+}

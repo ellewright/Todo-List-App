@@ -4,7 +4,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TodoListPage from "./pages/TodoListPage/TodoListPage";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import SettingsPage, { MainSettings } from "./pages/SettingsPage/SettingsPage";
+import PasswordResetPage from "./components/PasswordResetForm/PasswordResetForm";
 
 export const router = createBrowserRouter([
     {
@@ -37,7 +38,21 @@ export const router = createBrowserRouter([
                     <ProtectedRoute>
                         <SettingsPage />
                     </ProtectedRoute>
-                )
+                ),
+                children: [
+                    {
+                        index: true,
+                        element: <MainSettings />
+                    },
+                    {
+                        path: "password-reset",
+                        element: (
+                            <ProtectedRoute>
+                                <PasswordResetPage />
+                            </ProtectedRoute>
+                        )
+                    }
+                ]
             }
         ]
     }
