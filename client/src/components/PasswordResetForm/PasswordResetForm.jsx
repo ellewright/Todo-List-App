@@ -30,6 +30,8 @@ export default function PasswordResetForm() {
             } finally {
                 console.log(hasError)
             }
+        } else {
+            setHasError(true)
         }
     }
 
@@ -65,7 +67,7 @@ export default function PasswordResetForm() {
                 />
                 <div className={`error-container ${!hasError ? "hidden" : ""}`}>
                     <p>
-                        Incorrect email or password.
+                        Password reset failed. Please try again.
                     </p>
                 </div>
                 <input
