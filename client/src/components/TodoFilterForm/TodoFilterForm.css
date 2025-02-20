@@ -15,9 +15,9 @@
     border-width: 2px;
     border-style: solid;
     border-color: var(--dark-gray);
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 250ms;
+    transition-duration: 300ms;
 }
 
 .filter-form-group input.light {
@@ -30,6 +30,12 @@
     color: white;
 }
 
+.filter-form-group input:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .filter-form-group input:focus {
     border-color: var(--green);
 }
@@ -39,6 +45,14 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 0.5rem;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.checkbox-container:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .checkbox-container p {

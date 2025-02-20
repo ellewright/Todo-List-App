@@ -21,6 +21,14 @@
     color: white;
     border-radius: 99999px;
     padding: 0.5rem 0.75rem;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.button:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .settings {

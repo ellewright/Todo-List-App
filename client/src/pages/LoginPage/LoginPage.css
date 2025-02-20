@@ -34,9 +34,9 @@
     border-radius: 0.25rem;
     border-color: var(--dark-gray);
     margin-bottom: 0.5rem;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 250ms;
+    transition-duration: 300ms;
 }
 
 .login-input.light {
@@ -47,6 +47,12 @@
 
 .login-input.light::placeholder {
     color: white;
+}
+
+.login-input:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .login-input:focus {
@@ -70,6 +76,16 @@
     cursor: pointer;
     color: white;
     border-radius: 5px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.login-submit-button:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .register-container {
@@ -79,6 +95,14 @@
     justify-content: space-evenly;
 }
 
+.register-button {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
 .register-button:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
     text-decoration: underline;
 }

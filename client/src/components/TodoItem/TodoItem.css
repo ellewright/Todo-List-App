@@ -1,5 +1,13 @@
 .list-item {
     padding: 0.5rem 0 0.5rem 0;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.list-item:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .list-item form {
@@ -81,6 +89,15 @@
 .delete-button {
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .delete-button {

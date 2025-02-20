@@ -12,9 +12,18 @@
 .settings-buttons-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
     margin-top: 1rem;
+}
+
+.settings-buttons-container>button {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.settings-buttons-container>button:hover {
+    --scale-x: 1.05;
+    --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
 .settings-buttons-container>button:not(:last-child) {
