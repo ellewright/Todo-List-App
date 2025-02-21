@@ -32,6 +32,8 @@ public class UserService {
     }
 
     public User createUser(String firstName, String lastName, String email, String password) {
+        String defaultProfilePictureUrl = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png";
+
         if (userRepository.findByEmail(email) != null) {
             throw new InvalidRegistrationException("Sorry, an account with that email already exists!");
         }
@@ -41,6 +43,7 @@ public class UserService {
         }
 
         User newUser = new User();
+        newUser.setProfilePictureUrl(defaultProfilePictureUrl);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setEmail(email);

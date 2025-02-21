@@ -35,6 +35,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user) {
         User retrievedUser = userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
+        System.out.println(retrievedUser);
         return new ResponseEntity<User>(retrievedUser, HttpStatus.OK);
     }
 

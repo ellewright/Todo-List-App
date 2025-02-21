@@ -132,7 +132,7 @@ export default function TodoListPage() {
                     <h1>
                         Welcome, <span>{user.firstName}</span>
                     </h1>
-                    <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png" alt="Default profile picture." />
+                    <img src={user.profilePictureUrl} alt="Default profile picture." />
                 </div>
                 <TodoContext.Provider value={{
                     todos: filteredTodos,

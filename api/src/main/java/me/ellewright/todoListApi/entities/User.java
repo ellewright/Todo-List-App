@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     private String id;
+    private String profilePictureUrl;
     private String firstName;
     private String lastName;
     private String email;
