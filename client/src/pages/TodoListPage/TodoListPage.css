@@ -8,6 +8,29 @@
     background-color: white;
 }
 
+.header {
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.header span {
+    background-image: linear-gradient(to right, var(--green), var(--blue));
+    color: transparent;
+    background-clip: text;
+}
+
+.header img {
+    margin-top: 0.5rem;
+    height: 3rem;
+    border-radius: 99999px;
+}
+
 .buttons-container {
     width: 15rem;
     display: flex;
