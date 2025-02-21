@@ -26,6 +26,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.settings-buttons-container>button:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .settings-buttons-container>button:not(:last-child) {
     margin-bottom: 0.5rem;
 }

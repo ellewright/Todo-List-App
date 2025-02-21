@@ -31,6 +31,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.button:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .settings {
     background-color: var(--dark-gray);
     margin-right: 0.25rem;

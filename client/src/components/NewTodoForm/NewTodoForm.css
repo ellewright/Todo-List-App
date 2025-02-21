@@ -10,6 +10,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.new-todo-form:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .new-todo-form input {
     background-color: var(--dark-gray);
     color: var(--green);

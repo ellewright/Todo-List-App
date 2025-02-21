@@ -10,6 +10,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.list-item:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .list-item form {
     display: flex;
 }
@@ -97,6 +103,13 @@
 .delete-button:hover {
     --scale-x: 1.05;
     --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
+.edit-button:active,
+.delete-button:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 

@@ -55,6 +55,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.register-input:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .register-input:focus {
     border-color: var(--green);
 }
@@ -79,6 +85,12 @@
 .register-submit-button:hover {
     --scale-x: 1.05;
     --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
+.register-submit-button:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 

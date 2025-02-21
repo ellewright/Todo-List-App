@@ -36,6 +36,12 @@
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
+.filter-form-group input:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
 .filter-form-group input:focus {
     border-color: var(--green);
 }
@@ -52,6 +58,12 @@
 .checkbox-container:hover {
     --scale-x: 1.05;
     --scale-y: 1.05;
+    transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
+}
+
+.checkbox-container:active {
+    --scale-x: 1.00;
+    --scale-y: 1.00;
     transform: scaleX(var(--scale-x)) scaleY(var(--scale-y));
 }
 
