@@ -29,7 +29,6 @@ export default function LoginPage() {
         try {
             const response = await api.post("/api/v1/users/login", { email, password })
             const userData = response.data
-            console.log(userData)
             login(userData)
             navigate("/todos")
         } catch (e) {
