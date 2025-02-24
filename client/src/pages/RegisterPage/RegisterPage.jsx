@@ -7,6 +7,7 @@ import { DarkModeContext } from "../../App"
 export default function RegisterPage() {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [retypedPassword, setRetypedPassword] = useState("")
@@ -16,6 +17,10 @@ export default function RegisterPage() {
     const { isDarkMode } = useContext(DarkModeContext)
 
     const navigate = useNavigate()
+
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
+    }
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value)
@@ -43,6 +48,7 @@ export default function RegisterPage() {
         if (password === retypedPassword) {
             try {
                 await api.post("/api/v1/users/register", {
+                    username,
                     firstName,
                     lastName,
                     email,
@@ -87,6 +93,13 @@ export default function RegisterPage() {
                         />
                         <input
                             className={`register-input ${!isDarkMode ? "light" : ""}`}
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={handleUsername}
+                        />
+                        <input
+                            className={`register-input ${!isDarkMode ? "light" : ""}`}
                             type="email"
                             placeholder="email@address.com"
                             value={email}
@@ -109,7 +122,7 @@ export default function RegisterPage() {
                     </div>
                     <div className={`error-container ${!hasError ? "hidden" : ""}`}>
                         <p>
-                            Registration failed: All fields must be completed.
+                            Registration failed: All fields must be valid.
                         </p>
                     </div>
                     <div className="register-buttons">

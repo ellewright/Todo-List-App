@@ -10,5 +10,7 @@ import me.ellewright.todolistapi.entities.User;
 public interface UserRepository extends MongoRepository<User, ObjectId> {
     User findByEmail(String email);
 
-    User findByEmailAndPassword(String email, String password);
+    User findByUsername(String username);
+
+    User findByUsernameAndPassword(String email, String password);
 }

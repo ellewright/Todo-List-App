@@ -21,8 +21,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserByEmailAndPassword(String email, String password) {
-        User retrievedUser = userRepository.findByEmailAndPassword(email, password);
+    public User getUserByUsernameAndPassword(String username, String password) {
+        User retrievedUser = userRepository.findByUsernameAndPassword(username, password);
 
         if (retrievedUser == null) {
             throw new UserNotFoundException("Invalid credentials.");
@@ -31,19 +31,25 @@ public class UserService {
         return retrievedUser;
     }
 
-    public User createUser(String firstName, String lastName, String email, String password) {
+    public User createUser(String username, String firstName, String lastName, String email, String password) {
         String defaultProfilePictureUrl = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png";
 
         if (userRepository.findByEmail(email) != null) {
             throw new InvalidRegistrationException("Sorry, an account with that email already exists!");
         }
 
-        if ((firstName.equals("")) || (lastName.equals("")) || (email.equals("")) || (password.equals(""))) {
+        if (userRepository.findByUsername(username) != null) {
+            throw new InvalidRegistrationException("Sorry, an account with that username already exists!");
+        }
+
+        if ((username.equals("")) || (firstName.equals("")) || (lastName.equals("")) || (email.equals(""))
+                || (password.equals(""))) {
             throw new InvalidRegistrationException("All fields must be completed to register.");
         }
 
         User newUser = new User();
         newUser.setProfilePictureUrl(defaultProfilePictureUrl);
+        newUser.setUsername(username);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setEmail(email);
@@ -57,6 +63,7 @@ public class UserService {
 
         if (optionalUpdatingUser.isPresent()) {
             User updatingUser = optionalUpdatingUser.get();
+            updatingUser.setUsername(user.getUsername());
             updatingUser.setFirstName(user.getFirstName());
             updatingUser.setLastName(user.getLastName());
             updatingUser.setEmail(user.getEmail());

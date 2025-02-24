@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/AuthContext"
 import { DarkModeContext } from "../../App"
 
 export default function LoginPage() {
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [hasError, setHasError] = useState(false)
 
@@ -15,8 +15,8 @@ export default function LoginPage() {
 
     const { isDarkMode } = useContext(DarkModeContext)
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
     }
 
     const handlePassword = (e) => {
@@ -27,7 +27,7 @@ export default function LoginPage() {
         e.preventDefault()
 
         try {
-            const response = await api.post("/api/v1/users/login", { email, password })
+            const response = await api.post("/api/v1/users/login", { username, password })
             const userData = response.data
             login(userData)
             navigate("/todos")
@@ -53,10 +53,10 @@ export default function LoginPage() {
                     <div className="login-inputs">
                         <input
                             className={`login-input ${!isDarkMode ? "light" : ""}`}
-                            type="email"
-                            placeholder="email@address.com"
-                            value={email}
-                            onChange={handleEmail}
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={handleUsername}
                         />
                         <input
                             className={`login-input ${!isDarkMode ? "light" : ""}`}
@@ -68,7 +68,7 @@ export default function LoginPage() {
                     </div>
                     <div className={`error-container ${!hasError ? "hidden" : ""}`}>
                         <p>
-                            Incorrect email or password.
+                            Incorrect username or password.
                         </p>
                     </div>
                     <div className="login-buttons">

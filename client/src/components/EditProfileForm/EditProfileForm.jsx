@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 export default function EditProfileForm() {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [hasError, setHasError] = useState(false)
 
@@ -17,6 +18,7 @@ export default function EditProfileForm() {
 
     useEffect(() => {
         if (user) {
+            setUsername(user.username || "")
             setFirstName(user.firstName || "")
             setLastName(user.lastName || "")
             setEmail(user.email || "")
@@ -31,6 +33,10 @@ export default function EditProfileForm() {
         setLastName(e.target.value)
     }
 
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
+    }
+
     const handleEmail = (e) => {
         setEmail(e.target.value)
     }
@@ -39,6 +45,7 @@ export default function EditProfileForm() {
         e.preventDefault()
 
         try {
+            user.username = username
             user.firstName = firstName
             user.lastName = lastName
             user.email = email
@@ -70,6 +77,14 @@ export default function EditProfileForm() {
                     placeholder={user.lastName}
                     value={lastName}
                     onChange={handleLastName}
+                    required
+                />
+                <input
+                    type="text"
+                    className={`input ${!isDarkMode ? "light" : ""}`}
+                    placeholder={user.username}
+                    value={username}
+                    onChange={handleUsername}
                     required
                 />
                 <input
