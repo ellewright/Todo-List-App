@@ -48,6 +48,17 @@
     color: white;
 }
 
+.edit-profile-button {
+    background-color: var(--dark-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.edit-profile-button.light {
+    background-color: var(--light-gray);
+    color: white;
+}
+
 .password-change-button {
     background-color: var(--dark-gray);
     border-radius: 0.5rem;

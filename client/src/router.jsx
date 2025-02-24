@@ -5,7 +5,8 @@ import TodoListPage from "./pages/TodoListPage/TodoListPage";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import SettingsPage, { MainSettings } from "./pages/SettingsPage/SettingsPage";
-import PasswordResetPage from "./components/PasswordResetForm/PasswordResetForm";
+import EditProfileForm from "./components/EditProfileForm/EditProfileForm";
+import PasswordResetForm from "./components/PasswordResetForm/PasswordResetForm";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,15 @@ export const router = createBrowserRouter([
                         path: "password-reset",
                         element: (
                             <ProtectedRoute>
-                                <PasswordResetPage />
+                                <PasswordResetForm />
+                            </ProtectedRoute>
+                        )
+                    },
+                    {
+                        path: "edit-profile",
+                        element: (
+                            <ProtectedRoute>
+                                <EditProfileForm />
                             </ProtectedRoute>
                         )
                     }

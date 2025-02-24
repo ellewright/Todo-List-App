@@ -31,6 +31,12 @@ export function MainSettings() {
                     {!isDarkMode ? "Dark" : "Light"} Mode
                 </button>
                 <button
+                    className={`edit-profile-button ${!isDarkMode ? "light" : ""}`}
+                    onClick={() => navigate("/settings/edit-profile")}
+                >
+                    Edit Profile
+                </button>
+                <button
                     className={`password-change-button ${!isDarkMode ? "light" : ""}`}
                     onClick={() => navigate("/settings/password-reset")}
                 >

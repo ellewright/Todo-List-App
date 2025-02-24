@@ -27,8 +27,6 @@ export default function PasswordResetForm() {
                 navigate("/")
             } catch (e) {
                 setHasError(true)
-            } finally {
-                console.log(hasError)
             }
         } else {
             setHasError(true)
