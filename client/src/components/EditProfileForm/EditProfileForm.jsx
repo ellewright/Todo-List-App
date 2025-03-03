@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
 import "./EditProfileForm.css"
-import { DarkModeContext } from "../../App"
 import { updateTodoFromAPI, updateUserFromAPI } from "../../api/axiosConfig"
 import { useNavigate } from "react-router-dom"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function EditProfileForm() {
     const [firstName, setFirstName] = useState("")
@@ -13,7 +13,7 @@ export default function EditProfileForm() {
     const [hasError, setHasError] = useState(false)
 
     const navigate = useNavigate()
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
     const { user } = useAuth()
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
-import { DarkModeContext } from "../../App"
 import "./SettingsPage.css"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function SettingsPage() {
     return (
@@ -17,7 +17,7 @@ export default function SettingsPage() {
 }
 
 export function MainSettings() {
-    const { DARK_MODE_ACTIONS, isDarkMode, dispatch } = useContext(DarkModeContext)
+    const { DARK_MODE_ACTIONS, isDarkMode, dispatch } = useDarkMode()
 
     const navigate = useNavigate()
 

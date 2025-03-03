@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import api from "../../api/axiosConfig"
 import "./RegisterPage.css"
 import { Link, useNavigate } from "react-router-dom"
-import { DarkModeContext } from "../../App"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function RegisterPage() {
     const [firstName, setFirstName] = useState("")
@@ -14,7 +14,7 @@ export default function RegisterPage() {
 
     const [hasError, setHasError] = useState(false)
 
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
 
     const navigate = useNavigate()
 

@@ -1,12 +1,12 @@
 import { useContext, useRef } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
 import "./NewTodoForm.css"
-import { DarkModeContext } from "../../App"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function NewTodoForm() {
     const nameRef = useRef()
     const { addNewTodo } = useContext(TodoContext)
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
 
     function handleSubmit(e) {
         e.preventDefault()

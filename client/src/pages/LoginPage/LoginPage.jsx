@@ -3,7 +3,7 @@ import api from "../../api/axiosConfig"
 import "./LoginPage.css"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
-import { DarkModeContext } from "../../App"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function LoginPage() {
     const [username, setUsername] = useState("")
@@ -13,7 +13,7 @@ export default function LoginPage() {
     const { login } = useAuth()
     const navigate = useNavigate()
 
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
 
     const handleUsername = (e) => {
         setUsername(e.target.value)

@@ -2,11 +2,11 @@ import NewTodoForm from "../../components/NewTodoForm/NewTodoForm"
 import { useEffect, useReducer, createContext, useState, useContext } from "react"
 import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
-import { DarkModeContext } from "../../App"
 import "./TodoListPage.css"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import { fetchTodosFromAPI, addTodoFromAPI, updateTodoFromAPI, deleteTodoFromAPI } from "../../api/axiosConfig"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -55,7 +55,7 @@ export default function TodoListPage() {
     const [filter, setFilter] = useState("")
     const [hideCompleted, setHideCompleted] = useState(false)
 
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
 
     const [todos, dispatch] = useReducer(reducer, [])
 

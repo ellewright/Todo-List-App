@@ -1,14 +1,14 @@
 import { useContext, useRef, useState } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
 import "./TodoItem.css"
-import { DarkModeContext } from "../../App"
+import { useDarkMode } from "../../contexts/DarkModeContext"
 
 export default function TodoItem({ id, name, completed }) {
     const { toggleTodo, deleteTodo, updateTodo } = useContext(TodoContext)
     const [isEditing, setIsEditing] = useState(false)
     const nameRef = useRef()
 
-    const { isDarkMode } = useContext(DarkModeContext)
+    const { isDarkMode } = useDarkMode()
 
     function handleSubmit(e) {
         e.preventDefault()
