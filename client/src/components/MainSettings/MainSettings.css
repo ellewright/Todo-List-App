@@ -69,3 +69,13 @@
     background-color: var(--light-gray);
     color: white;
 }
+
+.delete-profile-button {
+    background-color: var(--red);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.delete-profile-button.light {
+    color: white;
+}

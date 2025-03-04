@@ -8,6 +8,7 @@ import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import MainSettings from "./components/MainSettings/MainSettings";
 import EditProfileForm from "./components/EditProfileForm/EditProfileForm";
 import PasswordResetForm from "./components/PasswordResetForm/PasswordResetForm";
+import DeleteProfileForm from "./components/DeleteProfileForm/DeleteProfileForm";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,14 @@ export const router = createBrowserRouter([
                         element: (
                             <ProtectedRoute>
                                 <EditProfileForm />
+                            </ProtectedRoute>
+                        )
+                    },
+                    {
+                        path: "delete-profile",
+                        element: (
+                            <ProtectedRoute>
+                                <DeleteProfileForm />
                             </ProtectedRoute>
                         )
                     }

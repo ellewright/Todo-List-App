@@ -63,3 +63,16 @@ export async function updateUserFromAPI(id, updatedUser) {
 
     return await response.json()
 }
+
+export async function deleteUserFromAPI(id) {
+    const response = await fetch(`${baseURL}/api/v1/users/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if (!response.ok) throw new Error("Failed to update user")
+
+    return await response.json()
+}

@@ -34,6 +34,12 @@ export default function MainSettings() {
                 >
                     Back
                 </button>
+                <button
+                    className={`delete-profile-button ${!isDarkMode ? "light" : ""}`}
+                    onClick={() => navigate("/settings/delete-profile")}
+                >
+                    Delete Profile
+                </button>
             </div>
         </>
     )
