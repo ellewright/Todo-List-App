@@ -7,6 +7,7 @@ import { useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import { fetchTodosFromAPI, addTodoFromAPI, updateTodoFromAPI, deleteTodoFromAPI } from "../../api/axiosConfig"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import FooterButtons from "../../components/FooterButtons/FooterButtons"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
@@ -51,7 +52,7 @@ function reducer(todos, { type, payload }) {
 }
 
 export default function TodoListPage() {
-    const { user, logout } = useAuth()
+    const { user } = useAuth()
     const [filter, setFilter] = useState("")
     const [hideCompleted, setHideCompleted] = useState(false)
 
@@ -121,10 +122,6 @@ export default function TodoListPage() {
         dispatch({ type: ACTIONS.REMOVE, payload: { id: todoId } })
     }
 
-    function handleLogout() {
-        logout()
-    }
-
     return (
         <>
             <div className={`page-container ${!isDarkMode ? "light" : ""}`}>
@@ -156,20 +153,7 @@ export default function TodoListPage() {
                     />
                 </TodoContext.Provider>
             </div>
-            <div className="buttons-container">
-                <Link
-                    className={`settings button ${!isDarkMode ? "light" : ""}`}
-                    to="/settings"
-                >
-                    Settings
-                </Link>
-                <button
-                    className="logout button"
-                    onClick={() => handleLogout()}
-                >
-                    Logout
-                </button>
-            </div>
+            <FooterButtons />
         </>
     )
 }

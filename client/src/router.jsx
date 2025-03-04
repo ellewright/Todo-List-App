@@ -4,7 +4,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TodoListPage from "./pages/TodoListPage/TodoListPage";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import SettingsPage, { MainSettings } from "./pages/SettingsPage/SettingsPage";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import MainSettings from "./components/MainSettings/MainSettings";
 import EditProfileForm from "./components/EditProfileForm/EditProfileForm";
 import PasswordResetForm from "./components/PasswordResetForm/PasswordResetForm";
 
