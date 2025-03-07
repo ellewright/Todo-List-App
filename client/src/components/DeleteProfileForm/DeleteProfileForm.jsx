@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
 import { useDarkMode } from "../../contexts/DarkModeContext"
-import { useState, useContext } from "react"
+import { useState } from "react"
 import api, { deleteUserFromAPI } from "../../api/axiosConfig"
 import "./DeleteProfileForm.css"
 

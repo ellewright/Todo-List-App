@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
-import "./EditProfileForm.css"
-import { updateTodoFromAPI, updateUserFromAPI } from "../../api/axiosConfig"
+import { updateUserFromAPI } from "../../api/axiosConfig"
 import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import "./EditProfileForm.css"
 
 export default function EditProfileForm() {
     const [firstName, setFirstName] = useState("")

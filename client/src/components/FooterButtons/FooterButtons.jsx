@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useDarkMode } from "../../contexts/DarkModeContext";
+import { Link } from "react-router-dom"
+import { useDarkMode } from "../../contexts/DarkModeContext"
+import { useAuth } from "../../contexts/AuthContext"
 import "./FooterButtons.css"
-import { useAuth } from "../../contexts/AuthContext";
 
 export default function FooterButtons() {
     const { isDarkMode } = useDarkMode()

@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
-import "./TodoItem.css"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import "./TodoItem.css"
 
 export default function TodoItem({ id, name, completed }) {
     const { toggleTodo, deleteTodo, updateTodo } = useContext(TodoContext)

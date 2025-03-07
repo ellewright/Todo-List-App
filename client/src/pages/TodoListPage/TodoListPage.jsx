@@ -1,13 +1,12 @@
 import NewTodoForm from "../../components/NewTodoForm/NewTodoForm"
-import { useEffect, useReducer, createContext, useState, useContext } from "react"
+import { useEffect, useReducer, createContext, useState } from "react"
 import TodoList from "../../components/TodoList/TodoList"
 import TodoFilterForm from "../../components/TodoFilterForm/TodoFilterForm"
-import "./TodoListPage.css"
 import { useAuth } from "../../contexts/AuthContext"
-import { Link, useNavigate } from "react-router-dom"
 import { fetchTodosFromAPI, addTodoFromAPI, updateTodoFromAPI, deleteTodoFromAPI } from "../../api/axiosConfig"
 import { useDarkMode } from "../../contexts/DarkModeContext"
 import FooterButtons from "../../components/FooterButtons/FooterButtons"
+import "./TodoListPage.css"
 
 const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {

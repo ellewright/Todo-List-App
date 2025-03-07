@@ -1,6 +1,5 @@
-import { useContext } from "react"
-import "./TodoFilterForm.css"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import "./TodoFilterForm.css"
 
 export default function TodoFilterForm({ filter, setFilter, hideCompleted, setHideCompleted }) {
     const { isDarkMode } = useDarkMode()

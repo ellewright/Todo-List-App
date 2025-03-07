@@ -1,9 +1,9 @@
-import "./PasswordResetForm.css"
 import { updateUserFromAPI } from "../../api/axiosConfig"
 import { useAuth } from "../../contexts/AuthContext"
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import "./PasswordResetForm.css"
 
 export default function PasswordResetForm() {
     const [prevPassword, setPrevPassword] = useState("")

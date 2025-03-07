@@ -1,7 +1,7 @@
 import { useContext, useRef } from "react"
 import { TodoContext } from "../../pages/TodoListPage/TodoListPage"
-import "./NewTodoForm.css"
 import { useDarkMode } from "../../contexts/DarkModeContext"
+import "./NewTodoForm.css"
 
 export default function NewTodoForm() {
     const nameRef = useRef()

@@ -1,10 +1,7 @@
-import TodoListPage from "./pages/TodoListPage/TodoListPage"
-import "./App.css"
-import { createContext, useEffect, useReducer, useState } from "react"
-import LoginPage from "./pages/LoginPage/LoginPage"
-import RegisterPage from "./pages/RegisterPage/RegisterPage"
+import { useEffect } from "react"
 import { Outlet } from "react-router-dom"
 import { useDarkMode } from "./contexts/DarkModeContext"
+import "./App.css"
 
 function App() {
   const { isDarkMode, DARK_MODE_KEY } = useDarkMode()
